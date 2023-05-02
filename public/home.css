@@ -73,6 +73,9 @@ h2 {
 	text-align: center;
 	text-transform: uppercase;
 }
+a{
+    text-decoration: none;
+}
 
 header h1 {
     font-size: 70px;
