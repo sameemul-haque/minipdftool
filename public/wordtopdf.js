@@ -16,13 +16,14 @@ form.addEventListener('submit', e => {
 	const formData = new FormData();
 	formData.append('file', wordFileInput.files[0]);
 
-	axios.post('https://api.yourpdfapi.com/convert/word-to-pdf', formData, {
+	axios.post('https://document-parser.pspdfkit.com/convert/docx/to/pdf', formData, {
 		headers: {
 			'Content-Type': 'multipart/form-data'
-		}
+		},
+		responseType: 'blob'
 	})
 	.then(response => {
-		const pdfUrl = response.data.url;
+		const pdfUrl = URL.createObjectURL(response.data);
 		resultDiv.innerHTML = `<a href="${pdfUrl}" target="_blank">Download PDF</a>`;
 	})
 	.catch(error => {
